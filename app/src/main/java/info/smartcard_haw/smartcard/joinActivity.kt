@@ -10,6 +10,8 @@ class joinActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_join)
+
+        setTitle("Beitreten")
     }
 
     fun scannedCode(view: View){

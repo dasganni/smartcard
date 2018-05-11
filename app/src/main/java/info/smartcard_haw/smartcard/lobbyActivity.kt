@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.View
 import android.widget.Button
 import android.widget.EditText
+import android.widget.TableRow
 import android.widget.TextView
 import kotlinx.android.synthetic.main.activity_lobby.*
 
@@ -14,6 +15,21 @@ class lobbyActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_lobby)
 
+        setTitle("Lobby")
+
+
+        //Platzhalter-Parameter bis Lobby fertig ist
+
+
+        var players = ArrayList<player>()
+
+        players.add(player("Marcus"))
+        players.add(player("Lampe"))
+        players.add(player("Patrick"))
+        players.add(player("Daniel"))
+        players.add(player("Ich"))
+
+        var anzahlSpieler = players.count()
 
         //declare views
 
@@ -31,8 +47,30 @@ class lobbyActivity : AppCompatActivity() {
         var waitInfoTextView = findViewById<TextView>(R.id.waitInfoTextView)
         var placeholderWaitingFinishedBtn = findViewById<Button>(R.id.placeholderWaitingFinishedBtn)
 
+        //generate table for count of players
 
-        //only show the start of the lobby
+        var tableTextViews = ArrayList<TextView>()
+
+
+        for(i in 1..anzahlSpieler) {
+            // Create a new table row.
+            val tableRow = TableRow(this)
+
+            // Set new table row layout parameters.
+            val layoutParams = TableRow.LayoutParams(TableRow.LayoutParams.WRAP_CONTENT)
+            tableRow.setLayoutParams(layoutParams)
+
+            // Add a TextView in the first column.
+            val textView = TextView(this)
+            textView.text = players[i].answer
+            players[i].answer = "bla"
+            tableRow.addView(textView, 0)
+
+            // Add a TextView in the second column.
+            val textView2 = TextView(this)
+            textView.text = players[i].answer
+            tableRow.addView(textView, 0)
+        }
 
         showOnlyLobbyStart()
 
@@ -107,6 +145,7 @@ class lobbyActivity : AppCompatActivity() {
         sendAnswerBtn.visibility = View.VISIBLE
 
     }
+
 
 
 

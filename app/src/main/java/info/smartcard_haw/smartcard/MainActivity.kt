@@ -18,6 +18,8 @@ class MainActivity : AppCompatActivity() {
     fun clickCreate(view: View){
         val createIntent = Intent(this, createActivity::class.java)
         startActivity(createIntent)
+
+        setTitle("Hauptmenü")
     }
 
     fun clickJoin(view: View){
