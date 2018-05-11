@@ -1,7 +1,8 @@
 package info.smartcard_haw.smartcard
 
-class player(var name : String ) {
-
+class player(name : String ) {
+    var name : String = name
+        private set
     var answer : String? = null
     var speed : Double? = null
 

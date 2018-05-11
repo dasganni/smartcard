@@ -2,12 +2,14 @@ package info.smartcard_haw.smartcard
 
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.support.constraint.ConstraintLayout
 import android.view.View
-import android.widget.Button
-import android.widget.EditText
-import android.widget.TableRow
-import android.widget.TextView
+import android.widget.*
+import android.widget.TableRow.LayoutParams
 import kotlinx.android.synthetic.main.activity_lobby.*
+import android.widget.TableLayout
+
+
 
 class lobbyActivity : AppCompatActivity() {
 
@@ -29,14 +31,32 @@ class lobbyActivity : AppCompatActivity() {
         players.add(player("Daniel"))
         players.add(player("Ich"))
 
-        var anzahlSpieler = players.count()
+        var anzahlSpieler = players.size
+
+        players[0].answer="Mario"
+        players[1].answer="Luigi"
+        players[2].answer="Peach"
+        players[3].answer="Bowser"
+        players[4].answer="Quark"
+
+        players[0].speed=1.5
+        players[1].speed=2.0
+        players[2].speed=2.5
+        players[3].speed=3.0
+        players[4].speed=20.1
+
+
+
+
+
+
 
         //declare views
 
-        var scanQRCodeBtn = findViewById<Button>(R.id.scanViewBtn)
+        var scanViewBtn = findViewById<Button>(R.id.scanViewBtn)
         var waitScanBtn = findViewById<Button>(R.id.waitScanBtn)
         var codeScannedBtn = findViewById<Button>(R.id.enterViewBtn)
-        var ergebnisBtn = findViewById<Button>(R.id.showViewBtn)
+        var showViewBtn = findViewById<Button>(R.id.showViewBtn)
         var internalInfoTextView = findViewById<TextView>(R.id.internalInfoTextView)
         var placeholderScannedBtn = findViewById<Button>(R.id.placeholderScannedBtn)
         var toEnterTextView = findViewById<TextView>(R.id.toEnterTextView)
@@ -46,30 +66,51 @@ class lobbyActivity : AppCompatActivity() {
         var placeholderAllAnswerSendBtn = findViewById<Button>(R.id.sendAnswerBtn)
         var waitInfoTextView = findViewById<TextView>(R.id.waitInfoTextView)
         var placeholderWaitingFinishedBtn = findViewById<Button>(R.id.placeholderWaitingFinishedBtn)
+        var tableTL = findViewById<TableLayout>(R.id.tableTL)
+        var answersTextView = findViewById<TextView>(R.id.answersTextView)
+
+
 
         //generate table for count of players
 
-        var tableTextViews = ArrayList<TextView>()
+        var tableTextViewsOuter = ArrayList<ArrayList<TextView>>()
+        var tableTextViewsInner = ArrayList<TextView>()
 
 
-        for(i in 1..anzahlSpieler) {
+        for(i in 0..anzahlSpieler - 1) {
+
+            print("test $i")
             // Create a new table row.
             val tableRow = TableRow(this)
 
+
             // Set new table row layout parameters.
-            val layoutParams = TableRow.LayoutParams(TableRow.LayoutParams.WRAP_CONTENT)
-            tableRow.setLayoutParams(layoutParams)
+
+
+            tableTL.addView(tableRow)
 
             // Add a TextView in the first column.
-            val textView = TextView(this)
-            textView.text = players[i].answer
-            players[i].answer = "bla"
-            tableRow.addView(textView, 0)
+            val namesTextView = TextView(this)
+            namesTextView.text = players[i].name
+            namesTextView.layoutParams = TableRow.LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT, 1f)
+            tableRow.addView(namesTextView)
+            tableTextViewsInner.add(namesTextView)
 
-            // Add a TextView in the second column.
-            val textView2 = TextView(this)
-            textView.text = players[i].answer
-            tableRow.addView(textView, 0)
+            // Add the answer text in the second column.
+            val answerTextView = TextView(this)
+            answerTextView.text = players[i].answer
+            answerTextView.layoutParams = TableRow.LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT, 1f)
+            tableRow.addView(answerTextView)
+            tableTextViewsInner.add(answerTextView)
+
+            // Add the speed text in the third column.
+            val speedTextView = TextView(this)
+            speedTextView.text = players[i].speed.toString()
+            speedTextView.layoutParams = TableRow.LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT, 1f)
+            tableRow.addView(speedTextView)
+            tableTextViewsInner.add(speedTextView)
+
+            tableTextViewsOuter.add(tableTextViewsInner)
         }
 
         showOnlyLobbyStart()
@@ -100,6 +141,11 @@ class lobbyActivity : AppCompatActivity() {
         answerTextBox.visibility = View.GONE
         answerHereTextView.visibility = View.GONE
         sendAnswerBtn.visibility = View.GONE
+
+        //tableView (Tabelle)
+        tableTL.visibility = View.GONE
+        answersTextView.visibility = View.GONE
+
 
 
 
@@ -146,11 +192,12 @@ class lobbyActivity : AppCompatActivity() {
 
     }
 
+    fun showTable(view: View) {
+        hideAll()
+        tableTL.visibility = View.VISIBLE
+        answersTextView.visibility = View.VISIBLE
 
-
-
-
-
+    }
 
 }
 
