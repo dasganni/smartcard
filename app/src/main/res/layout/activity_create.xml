@@ -4,48 +4,44 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
-    android:padding="@dimen/default_padding"
-
+    tools:context=".createActivity">
 
     <Button
-        android:id="@+id/button2"
-        android:layout_width="313dp"
+        android:id="@+id/everyoneInBtn"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="16dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="32dp"
-        android:onClick="clickJoin"
-        android:text="Tritt einer Lobby bei"
+        android:layout_marginEnd="24dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="24dp"
+        android:onClick="everybodyIn"
+        android:text="Alle Mitspieler sind in der Lobby"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.512"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button" />
+        app:layout_constraintTop_toBottomOf="@+id/qrcode_asdfg123" />
 
-    <Button
-        android:id="@+id/button"
-        android:layout_width="313dp"
+    <ImageView
+        android:id="@+id/qrcode_asdfg123"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="24dp"
         android:layout_marginEnd="16dp"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="32dp"
-        android:onClick="clickCreate"
-        android:text="Erstelle Lobby"
+        android:layout_marginTop="24dp"
+        app:layout_constraintBottom_toTopOf="@+id/everyoneInBtn"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.512"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
+        app:layout_constraintTop_toBottomOf="@+id/createTextView"
+        app:srcCompat="@drawable/exampleqrcode" />
 
     <TextView
-        android:id="@+id/textView"
-        android:layout_width="313dp"
-        android:layout_height="40dp"
+        android:id="@+id/createTextView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
         android:layout_marginEnd="16dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
-        android:text="Bitte wähle aus, ob du ein Spiel hosten oder einem Spiel beitreten möchtest:"
+        android:text="Lasse alle Mitspieler den QR-Code scannen und bestätige sobald alle in der Lobby sind:"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
 </android.support.constraint.ConstraintLayout>

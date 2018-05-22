@@ -16,6 +16,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".createActivity" />
+        <activity android:name=".joinActivity" />
+        <activity android:name=".lobbyActivity"></activity>
     </application>
 
 </manifest>
