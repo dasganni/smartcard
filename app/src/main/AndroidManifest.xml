@@ -19,6 +19,18 @@
         <activity android:name=".createActivity" />
         <activity android:name=".joinActivity" />
         <activity android:name=".lobbyActivity"></activity>
+
+
+
+
     </application>
+
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-feature android:name="android.hardware.camera.autofocus" />
+
+    <uses-feature
+        android:name="android.hardware.camera"
+        android:required="true"/>
 
 </manifest>

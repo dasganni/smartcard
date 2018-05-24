@@ -166,16 +166,14 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <Button
-            android:id="@+id/placeholderScannedBtn"
+        <SurfaceView
+            android:id="@+id/surfaceView"
             android:layout_width="0dp"
-            android:layout_height="507dp"
+            android:layout_height="0dp"
             android:layout_marginBottom="32dp"
             android:layout_marginEnd="32dp"
             android:layout_marginStart="32dp"
             android:layout_marginTop="24dp"
-            android:onClick="showEnterView"
-            android:text="Platzhalter-Button - QR-Code gescannt"
             android:visibility="visible"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
