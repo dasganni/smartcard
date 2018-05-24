@@ -1,12 +1,9 @@
 package info.smartcard_haw.smartcard;
 
 import android.Manifest;
-import android.content.Context;
 import android.content.DialogInterface;
 import android.content.pm.PackageManager;
-import android.hardware.Camera;
 import android.os.Build;
-import android.os.Vibrator;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
@@ -26,7 +23,7 @@ import static android.Manifest.permission.CAMERA;
 
 import java.io.IOException;
 
-public class MainActivity extends AppCompatActivity {
+public class ScannerActivity extends AppCompatActivity {
 
     private static final int REQUEST_CAMERA = 1;
 
@@ -39,7 +36,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_scanner);
 
         surfaceView = (SurfaceView) findViewById(R.id.cameraPreview);
         textView = (TextView) findViewById(R.id.textView);
@@ -175,7 +172,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void showMessageOKCancel(String message, DialogInterface.OnClickListener okListener) {
-        new android.support.v7.app.AlertDialog.Builder(MainActivity.this)
+        new android.support.v7.app.AlertDialog.Builder(ScannerActivity.this)
                 .setMessage(message)
                 .setPositiveButton("OK", okListener)
                 .setNegativeButton("Cancel", null)
