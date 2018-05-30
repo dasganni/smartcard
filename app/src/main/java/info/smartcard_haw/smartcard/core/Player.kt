@@ -1,8 +1,9 @@
-package info.smartcard_haw.smartcard
+package info.smartcard_haw.smartcard.core
 
-class player(name : String ) {
+
+
+class Player(name : String) {
     var name : String = name
-        private set
     var answer : String? = null
     var speed : Double? = null
 
