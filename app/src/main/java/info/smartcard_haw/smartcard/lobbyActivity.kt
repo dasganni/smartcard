@@ -31,22 +31,8 @@ class lobbyActivity : AppCompatActivity() {
 
         //declare views
         var lobbyCodeScan = intent.getStringExtra("barCodeStringExtra")
-
-        var scanViewBtn = findViewById<Button>(R.id.scanViewBtn)
-        var waitScanBtn = findViewById<Button>(R.id.waitScanBtn)
-        var showViewBtn = findViewById<Button>(R.id.showViewBtn)
-        var internalInfoTextView = findViewById<TextView>(R.id.internalInfoTextView)
-        var surfaceView = findViewById<SurfaceView>(R.id.surfaceView)
-        var toEnterTextView = findViewById<TextView>(R.id.toEnterTextView)
-        var scanTextView = findViewById<TextView>(R.id.scanTextView)
-        var answerTextBox = findViewById<EditText>(R.id.answerTextBox)
-        var answerHereTextView = findViewById<TextView>(R.id.answerHereTextView)
-        var sendAnswerBtn = findViewById<Button>(R.id.sendAnswerBtn)
-        var waitInfoTextView = findViewById<TextView>(R.id.waitInfoTextView)
-        var placeholderWaitingFinishedBtn = findViewById<Button>(R.id.placeholderWaitingFinishedBtn)
         var tableTL = findViewById<TableLayout>(R.id.tableTL)
-        var codeScannedBtn = findViewById<Button>(R.id.enterViewBtn)
-        var placeholderAllAnswerSendBtn = findViewById<Button>(R.id.sendAnswerBtn)
+
 
 
 
@@ -134,12 +120,13 @@ class lobbyActivity : AppCompatActivity() {
 
     //function to hide all views and then show specific views with another function
 
-    private fun hideAll() {
+     fun hideAll() {
 
         //startview
         scanViewBtn.visibility = View.GONE
         waitScanBtn.visibility = View.GONE
         showViewBtn.visibility = View.GONE
+        enterViewBtn.visibility = View.GONE
         internalInfoTextView.visibility = View.GONE
 
         //scanview (einlesen)
@@ -163,18 +150,18 @@ class lobbyActivity : AppCompatActivity() {
 
     }
 
-    fun showOnlyLobbyStart() {
+     fun showOnlyLobbyStart() {
         hideAll()
         scanViewBtn.visibility = View.VISIBLE
         waitScanBtn.visibility = View.VISIBLE
-        sendAnswerBtn.visibility = View.VISIBLE
         showViewBtn.visibility = View.VISIBLE
+        enterViewBtn.visibility = View.VISIBLE
         internalInfoTextView.visibility = View.VISIBLE
 
 
     }
 
-    fun showScanCard(view: View) {
+     fun showScanCard(view : View) {
         hideAll()
         surfaceView.visibility = View.VISIBLE
         scanTextView.visibility = View.VISIBLE
@@ -257,7 +244,7 @@ class lobbyActivity : AppCompatActivity() {
 
     }
 
-    fun showEnterView() {
+     fun showEnterView() {
         hideAll()
 
         toEnterTextView.post(Runnable {
@@ -272,7 +259,7 @@ class lobbyActivity : AppCompatActivity() {
 
     }
 
-    fun showTable(view: View) {
+     fun showTable(view: View) {
         hideAll()
         tableTL.visibility = View.VISIBLE
         answersTextView.visibility = View.VISIBLE
