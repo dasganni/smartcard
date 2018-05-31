@@ -250,7 +250,7 @@ class lobbyActivity : AppCompatActivity() {
         toEnterTextView.post(Runnable {
             //Vibrator vibrator = (Vibrator) getApplicationContext().getSystemService(Context.VIBRATOR_SERVICE);
             //vibrator.vibrate(1);
-            toEnterTextView.text = "Yeah, du hast eine Karte gescannt, das steht drauf: $barCodeString"
+            toEnterTextView.text = "$barCodeString"
         })
         toEnterTextView.visibility = View.VISIBLE
         answerTextBox.visibility = View.VISIBLE
