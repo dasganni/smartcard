@@ -167,7 +167,7 @@ class joinActivity : AppCompatActivity() {
     fun scannedCode(){
 
         val scannedIntent = Intent(this, lobbyActivity::class.java)
-            scannedIntent.putExtra("barCodeStringExtra", barCodeString)
+        scannedIntent.putExtra("barCodeStringExtra", barCodeString)
         startActivity(scannedIntent)
     }
 }
