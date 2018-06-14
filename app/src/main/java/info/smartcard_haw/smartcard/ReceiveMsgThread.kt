@@ -7,12 +7,13 @@ import java.net.Socket
 import java.util.*
 
 class ReceiveMsgThread (
-        //Socket des zu dem Thread geh�rigen Clients
+        //Socket des zu dem Thread gehö
+        // rigen Clients
         private val ownSocket: Socket,
         //Referenz auf die HashMap in der Serverklasse
         private val connections: HashMap<Socket, ReceiveMsgThread>) : Thread() {
 
-    //boolean wert um den Thread sp�ter zu beenden
+    //boolean wert um den Thread später zu beenden
     private var isRunning = false
 
     //�ber den Scanner liest der Thread alle Nachrichten eines Clients

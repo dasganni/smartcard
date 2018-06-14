@@ -8,9 +8,9 @@ class Client {
 
     init {
         //port ueber den der Client und der Server reden
-        val port = 12345
+        val port = 8060
         //ip addresse vom server
-        val serverIP = ""
+        val serverIP = "leschhorn.info"
 
         try {
             println("Try to connect to server")
@@ -21,7 +21,7 @@ class Client {
 
             //erstelle und starte einen Thread, der dauerhaft horcht,
             //ob Nachrichten vom Server ankommen (anderen Clients)
-            val inputThread = ReceiveMsgThread(socket)
+            val inputThread = ReceiveMsgThreadClient(socket)
             inputThread.start()
 
             //erstelle einen PrintWriter und

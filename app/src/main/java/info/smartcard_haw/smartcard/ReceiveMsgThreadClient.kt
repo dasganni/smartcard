@@ -4,7 +4,7 @@ import java.io.IOException
 import java.net.Socket
 import java.util.*
 
-class ReciveMsgThreadClient(socket: Socket) : Thread() {
+class ReceiveMsgThreadClient(socket: Socket) : Thread() {
 
     private var isRunning = false
     private var `in`: Scanner? = null
