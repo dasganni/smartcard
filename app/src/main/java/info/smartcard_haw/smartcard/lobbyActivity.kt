@@ -27,9 +27,8 @@ import info.smartcard_haw.smartcard.R.id.textView
 
 class lobbyActivity : AppCompatActivity() {
 
-    private val REQUEST_CAMERA = 1
+    var REQUEST_CAMERA = 1
     var barCodeString : String? = null
-
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -37,6 +36,8 @@ class lobbyActivity : AppCompatActivity() {
         var lobbyCodeScan = intent.getStringExtra("barCodeStringExtra")
 
         setTitle("Lobby-ID: $lobbyCodeScan")
+
+        var client = Client()
 
         //declare views
 

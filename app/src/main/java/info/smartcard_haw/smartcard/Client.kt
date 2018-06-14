@@ -10,7 +10,7 @@ class Client {
         //port ueber den der Client und der Server reden
         val port = 8060
         //ip addresse vom server
-        val serverIP = "leschhorn.info"
+        val serverIP = "84.155.63.182"
 
         try {
             println("Try to connect to server")
@@ -50,4 +50,5 @@ class Client {
         }
 
     }
+
 }
