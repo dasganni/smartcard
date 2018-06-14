@@ -9,12 +9,10 @@ class Server {
 
     //Server
     private val connections = HashMap<Socket, ReceiveMsgThread>()
-    internal var portVar: Int = 0
-
-    init {
-
-        val port = portVar
-
+    internal val port: Int = 8060
+	
+	fun run(){
+        		
         try {
             //Das ServerSocket wird an den Port gebunden
             //�ber das ServerSocket k�nnen sich 100 Clients verbinden
@@ -51,12 +49,5 @@ class Server {
 
     }
 
-    companion object {
-
-        @JvmStatic
-        fun main(args: Array<String>) {
-            Server()
-        }
-    }
 
 }
