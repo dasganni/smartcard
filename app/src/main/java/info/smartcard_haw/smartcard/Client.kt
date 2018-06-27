@@ -4,13 +4,13 @@ import java.io.PrintWriter
 import java.net.Socket
 import java.util.Scanner
 
-class Client {
+class Client : Thread() {
 
-    init {
+    override fun run() {
         //port ueber den der Client und der Server reden
         val port = 8060
         //ip addresse vom server
-        val serverIP = "84.155.63.182"
+        val serverIP = "leschhorn.info"
 
         try {
             println("Try to connect to server")

@@ -2,12 +2,10 @@ package info.smartcard_haw.smartcard
 
 import android.Manifest
 import android.content.DialogInterface
-import android.content.Intent
 import android.content.pm.PackageManager
 import android.os.Build
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
-import android.support.constraint.ConstraintLayout
 import android.support.v4.app.ActivityCompat
 import android.support.v4.content.ContextCompat
 import android.view.SurfaceHolder
@@ -22,24 +20,20 @@ import com.google.android.gms.vision.Detector
 import com.google.android.gms.vision.barcode.Barcode
 import com.google.android.gms.vision.barcode.BarcodeDetector
 import java.io.IOException
-import info.smartcard_haw.smartcard.R.id.textView
-
 
 class lobbyActivity : AppCompatActivity() {
 
     var REQUEST_CAMERA = 1
     var barCodeString : String? = null
 
+
+
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_lobby)
         var lobbyCodeScan = intent.getStringExtra("barCodeStringExtra")
-
-        setTitle("Lobby-ID: $lobbyCodeScan")
-
-        var client = Client()
-
-        //declare views
 
         var scanViewBtn = findViewById<Button>(R.id.scanViewBtn)
         var waitScanBtn = findViewById<Button>(R.id.waitScanBtn)
@@ -56,6 +50,18 @@ class lobbyActivity : AppCompatActivity() {
         var placeholderWaitingFinishedBtn = findViewById<Button>(R.id.placeholderWaitingFinishedBtn)
         var tableTL = findViewById<TableLayout>(R.id.tableTL)
         var answersTextView = findViewById<TextView>(R.id.answersTextView)
+
+        setTitle("Lobby-ID: $lobbyCodeScan")
+
+        var client = Client()
+
+        //erstelle und starte einen Thread, der dauerhaft horcht,
+        //ob Nachrichten vom Server ankommen (anderen Clients)
+        client.start()
+
+        //declare views
+
+
 
         //Barcode-Scanner
 
